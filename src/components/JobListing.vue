@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from 'vue-router';
 // bring in ref and computed 
 import { defineProps, ref, computed } from 'vue';
 
@@ -52,12 +53,13 @@ const truncatedDescription =  computed(() => {
                   {{ job.location }}
                 </div>
                 
-                <a
-                  :href="'/job/' + job.id"
+                <!-- : is a short hand for v-bind treats the value as Js and not a string job.id links the page to each job page with readmore  -->
+                <RouterLink
+                  :to="'/job/' + job.id"
                   class="h-[36px] bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-center text-sm"
                 >
                   Read More
-                </a>
+                </RouterLink>
                    
               </div>
             </div>
