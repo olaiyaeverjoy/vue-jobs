@@ -1,7 +1,15 @@
 <script setup>
-    import { RouterLink } from 'vue-router';
-    import logo from '..//assets/img/logo.png'
-
+  import { RouterLink, useRoute, useRouter } from 'vue-router';
+  import logo from '..//assets/img/logo.png'
+  // const router = useRouter();
+  // const navigate = () => {
+  //   router.push('/jobs');
+  // }
+  // useRoute is a vue function use to locate/route the path or also style it
+  const isActiveLink = (routePath) => {
+    const route = useRoute();
+    return route.path === routePath;
+  }
 </script>
 
 <template>
@@ -20,17 +28,14 @@
             </RouterLink>
             <div class="md:ml-auto">
               <div class="flex space-x-2">
-                <RouterLink to="/"
-                  class="text-white bg-green-900 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">
+                <RouterLink to="/" :class="[isActiveLink('/') ? 'bg-green-900' : 'hover:bg-gray-900 hover:text-white', 'text-white', 'rounded-md', 'px-3', 'py-2']">
                   Home
                 </RouterLink>
-                <RouterLink to="/jobs"
-                  class="text-white hover:bg-green-900 hover:text-white rounded-md px-3 py-2">
+                <RouterLink to="/jobs" :class="[isActiveLink('/jobs') ? 'bg-green-900' : 'hover:bg-gray-900 hover:text-white', 'text-white', 'rounded-md', 'px-3', 'py-2']">
                   Jobs
                 </RouterLink>
-                <RouterLink to="/jobs/add"
-                  class="text-white hover:bg-green-900 hover:text-white rounded-md px-3 py-2">
-                  Addjobs
+                <RouterLink to="/jobs/add" :class="[isActiveLink('/jobs/add') ? 'bg-green-900' : 'hover:bg-gray-900 hover:text-white', 'text-white', 'rounded-md', 'px-3', 'py-2']">
+                  Add Job
                 </RouterLink>
               </div>
             </div>

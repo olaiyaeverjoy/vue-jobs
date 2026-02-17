@@ -6,6 +6,8 @@ import { defineProps, ref, computed } from 'vue';
 const props = defineProps({
     job:Object
 });
+
+console.log(props.job);
 //  first create a var to showFullDescription and set it to a default value of false
 const showFullDescription = ref(false);   
 
@@ -55,7 +57,7 @@ const truncatedDescription =  computed(() => {
                 
                 <!-- : is a short hand for v-bind treats the value as Js and not a string job.id links the page to each job page with readmore  -->
                 <RouterLink
-                  :to="'/job/' + job.id"
+                  :to="'/jobs/' + job.id"
                   class="h-[36px] bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-center text-sm"
                 >
                   Read More
