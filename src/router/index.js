@@ -4,6 +4,7 @@ import Jobsview from '../views/Jobsview.vue';
 import NotFoundview from '../views/NotFoundview.vue';
 import Jobview from '../views/Jobview.vue';
 import AddJobview from '../views/AddJobview.vue';
+import EditJobview from '../views/EditJobview.vue';
 
 
 const router = createRouter({
@@ -23,6 +24,11 @@ const router = createRouter({
             path: '/jobs/add',
             name: 'Add Job',
             component: AddJobview,
+        },
+        {
+            path: '/jobs/edit/:id',
+            name: 'edit-jobs',
+            component: EditJobview,
         },
         {
             path: '/jobs/:id',
